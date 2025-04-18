@@ -23,3 +23,47 @@ Example:
   {"name": "Alice", "program": "Software Engineering"},
   {"name": "Bob", "program": "Software Engineering"}
 ]
+## Assignment 2 - Bash Automation & Monitoring
+
+This part of the project extends the Flask API deployment from Assignment 1 by adding system automation and monitoring using Bash scripting and Linux cron jobs.
+
+### 📁 Bash Scripts
+
+Three scripts were created and stored in the `bash_scripts/` folder:
+
+1. **health_check.sh**  
+   - Logs CPU, memory, disk usage, and confirms the Flask API is reachable.
+   - Output is saved to `/var/log/server_health.log`.
+
+2. **backup_api.sh**  
+   - Creates a `.tar.gz` backup of the Flask project and removes backups older than 7 days.
+   - Saves backups in `/home/ubuntu/backups`.
+
+3. **update_server.sh**  
+   - Runs `apt update`, pulls the latest code from GitHub, and restarts the Flask API service.
+   - Logs are saved to `/var/log/update.log`.
+
+### 🔁 Cron Jobs
+
+The scripts are scheduled using `crontab` as follows:
+
+| Script             | Schedule                   |
+|--------------------|----------------------------|
+| `health_check.sh`  | Every 6 hours              |
+| `backup_api.sh`    | Daily at 2:00 AM           |
+| `update_server.sh` | Every 3 days at 3:00 AM    |
+
+Cron proof included in `cron_setup.txt`.
+
+### 📄 Sample Logs
+
+Logs from health checks and updates were combined and included in `logs_sample.txt`.
+
+### ✅ Result
+
+This automation setup ensures that the API server is:
+- Regularly monitored
+- Automatically backed up
+- Always running with the latest updates
+
+All files are available in this repository.
