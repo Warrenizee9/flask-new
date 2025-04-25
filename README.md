@@ -67,3 +67,9 @@ This automation setup ensures that the API server is:
 - Always running with the latest updates
 
 All files are available in this repository.
+### 🐳 Docker Image Backup (WeTransfer)
+
+If Docker Hub is inaccessible, you can download the Docker image from the link below:
+
+🔗 [Download flask-api-assignment3.tar.gz](https://we.tl/t-0aS2ATSzEP)
+
